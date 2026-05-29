@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.geometry.Insets?>
+
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.studentrecordmanagementsystem.HelloController">
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.studentrecordmanagementsystem.Controller"
+      spacing="10" style="-fx-padding: 20;">
 
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+    <TextField fx:id="txtName" promptText="Name"/>
+    <TextField fx:id="txtCourse" promptText="Course"/>
+    <ChoiceBox fx:id="cbYear" prefWidth="200"/>
 
-    <Label text="Enter Student Details"/>
-    <TextField fx:id="nameField" promptText="Name"/>
-    <TextField fx:id="emailField" promptText="Email"/>
-    <Button text="Save Student" onAction="#onSaveButtonClick"/>
+    <HBox spacing="10">
+        <Button text="Add"    onAction="#addStudent"/>
+        <Button text="Update" onAction="#updateStudent"/>
+        <Button text="Delete" onAction="#deleteStudent"/>
+        <Button text="Clear"  onAction="#clearFields"/>
+    </HBox>
+
+    <TableView fx:id="table" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="colId"     text="ID"         prefWidth="60"/>
+            <TableColumn fx:id="colName"   text="Name"       prefWidth="150"/>
+            <TableColumn fx:id="colCourse" text="Course"     prefWidth="120"/>
+            <TableColumn fx:id="colYear"   text="Year Level" prefWidth="100"/>
+        </columns>
+    </TableView>
+
 </VBox>
