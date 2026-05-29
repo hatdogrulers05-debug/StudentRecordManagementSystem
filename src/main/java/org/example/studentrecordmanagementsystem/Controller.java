@@ -9,9 +9,9 @@ public class Controller {
     public void addStudent(String name, String email) {
         String sql = "INSERT INTO students (name, email) VALUES (?, ?)";
 
-        Connection conn = DBConnection.connect(); // ← get connection
+        Connection conn = DBConnection.connect();
 
-        if (conn == null) {                       // ← null check (THIS was the crash)
+        if (conn == null) {
             System.out.println("❌ Cannot save: no database connection.");
             return;
         }
